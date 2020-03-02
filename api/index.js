@@ -19,7 +19,7 @@ module.exports = async (request, response) => {
         {
           title: body.project_name,
           type: 'rich',
-          description: body.message,
+          description: body.message || body.data.event.title || "osman",
           url: body.url,
           timestamp: new Date(body.event.received * 1000).toISOString(),
           color: COLORS[body.level] || COLORS.error,
